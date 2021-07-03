@@ -1,4 +1,5 @@
 require('dotenv').config()
+const express = require('express')
 const {Telegraf} = require('telegraf')
 const axios = require('axios')
 const errorHandler = require('./services/errorHandler')
@@ -8,7 +9,10 @@ const checkCrypto = require('./services/checkCrypto')
 
 const {TOKEN} = process.env;
 
+const App = express()
 const Naranbot = new Telegraf(TOKEN)
+App.use(bot.webhookCallback(TOKEN))
+
 let errorMessage = errorHandler()
 
 Naranbot.start((ctx) => {
@@ -240,8 +244,14 @@ Naranbot.command(['Listamehelp', 'listamehelp', 'Listh', 'listh'], (ctx) => {
 
 const PORT = process.env.PORT || 3001
 
-// Http webhook, for nginx/heroku users.
-Naranbot.start_webhook("0.0.0.0", PORT, TOKEN)
-
 Naranbot.telegram.setWebhook('https://fierce-mountain-87846.herokuapp.com/' + TOKEN)
+// Http webhook, for nginx/heroku users.
+Naranbot.startWebhook(TOKEN, null, PORT)
 
+expressApp.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+  
+expressApp.listen(3000, () => {
+    console.log('Example app listening on port 3000!')
+})
