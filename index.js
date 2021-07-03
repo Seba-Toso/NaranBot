@@ -236,4 +236,12 @@ Naranbot.command(['Listamehelp', 'listamehelp', 'Listh', 'listh'], (ctx) => {
 })
 
 
-Naranbot.launch()
+//Naranbot.launch()
+
+const PORT = process.env.PORT || 3001
+
+// Http webhook, for nginx/heroku users.
+Naranbot.start_webhook("0.0.0.0", PORT, TOKEN)
+
+Naranbot.telegram.setWebhook('https://fierce-mountain-87846.herokuapp.com/' + TOKEN)
+
