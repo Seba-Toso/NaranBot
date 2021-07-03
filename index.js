@@ -11,7 +11,7 @@ const {TOKEN} = process.env;
 
 const App = express()
 const Naranbot = new Telegraf(TOKEN)
-App.use(bot.webhookCallback(TOKEN))
+App.use(Naranbot.webhookCallback(TOKEN))
 
 let errorMessage = errorHandler()
 
@@ -248,10 +248,10 @@ Naranbot.telegram.setWebhook('https://fierce-mountain-87846.herokuapp.com/' + TO
 // Http webhook, for nginx/heroku users.
 Naranbot.startWebhook(TOKEN, null, PORT)
 
-expressApp.get('/', (req, res) => {
+App.get('/', (req, res) => {
     res.send('Hello World!')
 })
   
-expressApp.listen(3000, () => {
+App.listen(3000, () => {
     console.log('Example app listening on port 3000!')
 })
