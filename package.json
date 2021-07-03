@@ -1,0 +1,28 @@
+{
+  "name": "naranbot",
+  "version": "1.0.0",
+  "description": "A bot for multiple purposes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seba-Toso/NaranBot.git"
+  },
+  "author": "Don Toxo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seba-Toso/NaranBot/issues"
+  },
+  "homepage": "https://github.com/Seba-Toso/NaranBot#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "telegraf": "^4.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
