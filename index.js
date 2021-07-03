@@ -240,7 +240,7 @@ Naranbot.command(['Listamehelp', 'listamehelp', 'Listh', 'listh'], (ctx) => {
 })
 
 
-//Naranbot.launch()
+Naranbot.launch()
 
 const PORT = process.env.PORT || 3001
 
